@@ -34,7 +34,7 @@ To get current week exchange rate just pass the currency on query.
 Example:
 
 ```http
-/exchangerate?to=BRL&from=USD
+/api/exchangerate?to=BRL&from=USD
 ```
 Return:
 ```javascript
