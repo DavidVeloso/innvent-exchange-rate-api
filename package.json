@@ -1,6 +1,6 @@
 {
   "name": "innvent-exchange-rate-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A api to get week exchange rate",
   "author": "David Veloso <davidedsoon@gmail.com>",
   "main": "index.js",
