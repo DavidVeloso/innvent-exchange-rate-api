@@ -15,17 +15,15 @@ const config = require('../../config/env');
 function index(req, res, next){
 	
   const defaultUrl = `${config.API_LAYER_HOST}/convert?access_key=${config.API_LAYER_KEY}`;
-  const days = getLastWeek();
+  const week = getLastWeek();
   const from = req.query.from;
   const to = req.query.to;       
   const amount = 1;  
 
-  let promises = [];
-
-  for (let day = 0; day < days.length; day++) {
-    let url = `${defaultUrl}&from=${from}&to=${to}&amount=${amount}&date=${days[day]}&format=1`;
-    promises.push(request(url));
-  };
+  let promises = week.map(day => {
+    let url = `${defaultUrl}&from=${from}&to=${to}&amount=${amount}&date=${day}&format=1`;
+    return request(url);
+  });
 
   Promise.all(promises)
     .then(resolvePromise)
